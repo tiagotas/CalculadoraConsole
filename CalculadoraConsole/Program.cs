@@ -26,13 +26,45 @@ namespace CalculadoraConsole
             Console.WriteLine("Digite * para Multiplicação");
             Console.WriteLine("Digite / para Divisão");
 
-            operacao = Console.ReadLine();
+            // looping....
+            // Só deverá repetir se o usuário digitar
+            // uma operação inválida.
+            bool repetir_digitar_operacao = false;
+
+            do
+            {
+                operacao = Console.ReadLine();
+
+                switch(operacao)
+                {
+                    case "+":
+                    case "-":
+                    case "*":
+                    case "/":
+                        repetir_digitar_operacao = false;
+                        break;
+                    default:
+                        repetir_digitar_operacao = true;
+                        Console.WriteLine("Operação inválida. Digite novamente.");
+                        break;
+                }
+
+            } while (repetir_digitar_operacao);
+              // Enquanto. Dentro dos parenteses é feito o teste de verdadeiro ou falso.
+              // a variável repetir_digitar_operacao é booleana, ou seja, true ou false.
+              // Esse código pode ser otimizado?
+
+            
+           
 
             Console.WriteLine("Informe o primeiro número:");
             n1 = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Informe o segundo número:");
             n2 = Convert.ToDouble(Console.ReadLine());
+
+            
+
 
             // Escolha
             switch(operacao)
